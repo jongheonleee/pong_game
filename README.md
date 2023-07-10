@@ -51,7 +51,7 @@
 <img width="1004" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/a36466eb-3066-4936-aabc-aaa6a2d88d30">
 </br>
 
-- 페달과 벽에 맞으면 공이 튀기면서 속도가 빨라짐
+- 공이 페달이나 공에 부딪히면 반대 방향으로 튕겨져 나오며 페달에 부딪힐 경우 속도가 빨라짐
 
 #### (1) Ball 객체 분석
 - 일단, Ball 객체에는 공에 대한 정보가 저장되어 있는데 여기에는 속도((xVelocity, yVelocity)와 방향(randomXDirection, randomYDirection)에 대한 정보가 기록되어 있음가 있음
