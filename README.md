@@ -2,6 +2,7 @@
 
 ## 참고 자료
 - https://www.youtube.com/watch?v=oLirZqJFKPE
+  <br/>
   <img width="596" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/ee7facad-e945-498f-bb60-71d8a6945fc2">
 <br/>
 
