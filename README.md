@@ -48,8 +48,6 @@
 ### 📌 1. 탁구 공이 튀기는 원리
 
 </br>
-<img width="95" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/e993a353-d0f4-4f15-9fc7-8b5f620f09b3">
-</br>
 <img width="1004" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/a36466eb-3066-4936-aabc-aaa6a2d88d30">
 </br>
 
