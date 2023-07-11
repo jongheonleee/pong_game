@@ -53,6 +53,7 @@
 </br>
 
 - 공이 페달이나 공에 부딪히면 반대 방향으로 튕겨져 나오며 페달에 부딪힐 경우 속도가 빨라짐
+- 위의 기능을 구현하기 위해 협력하는 객체는 크게 Ball, Paddle, GamePanel이 있음
 
 #### (1) Ball 객체 분석
 - 일단, Ball 객체에는 공에 대한 정보가 저장되어 있는데 여기에는 속도((xVelocity, yVelocity)와 방향(randomXDirection, randomYDirection)에 대한 정보가 기록되어 있음가 있음
@@ -67,7 +68,7 @@
   <img width="185" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/383bff08-c52e-4da7-8583-4326bc0f1671">
 - 위를 통해 알 수 있는 것은 Ball 객체는 해당 공의 속도와 방향, 그리고 위치 정보를 담고 있음, <b>그래서 페달과 벽에 공이 튀기는 겨서 속도가 빨라지는 작업은 다른 객체에 의해 이루어짐</b>
 
-#### (2) GamePanel 객체 분석
+#### (2) GamePanel 객체 분석(공의 부딪히는 기능 중심)
 - 해당 객체를 통해서 Ball이 페달이나 벽에 부딪힌 것을 판단하고 적절히 처리해줌(속도를 높임,,,)
 - 이 객체는 컨트롤러임, 전체 게임 판에서 이루어지는 상황에 대해 적절히 컨트롤해줌
 - 일단, 분석하고자 하는 공이 벽이나 페달에 부딪히는 부분부터 확인해보자
@@ -100,6 +101,44 @@
 
 
 ### 📝 결론 : 탁구공이 벽이나 페달에 부딪혔을 때 튕겨져 나오며 특히 페달의 경우 가속화시켜주는 기능에는 두 가지 객체가 협력함. Ball, GamePanel이 서로 협력함 GamePanel에서는 checkCollision()을 통해 게임 판 위에 존재하는 ball 인스턴스가 벽이나 페달에 부딪혔는지 파악하고 그에 대한 적절한 처리를 해줌
+
+### 📌 2. 게임 스코어 기록하는 원리
+
+</br>
+<img width="1004" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/9314eb5b-fa45-4f27-93aa-8884c3639674">
+
+</br>
+
+- 사용자가 자신의 페달로 공을 받아내지 못하고 뒤로 넘어가는 경우 상대방의 점수가 올라감
+- 위의 기능을 구현하기 위해 협력하는 객체는 Ball, Score, GamePanel이 있음
+- 일단, Ball은 이미 분석했으므로 Score, GamePanel을 중심으로 분석하기
+
+#### (1) Score 객체 분석
+- 위에서 정의 했듯이, 해당 객체의 역할은 "현재 진행되는 게임의 스코어를 기록하는 역할을 함"임
+- 이를 위해서 클래스 변수와 인스턴스 변수로 총 4개가 선언되어 있음
+  <br/>
+<img width="270" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/454053b5-4807-40ef-8036-9e08122e9dfa">
+  <br/>
+  - 클래스 변수로 선언되어 있는 GAME_WIDTH, GAME_HEIGHT는 현재 게임의 윈도우 사이즈를 의미함
+  - 해당 변수의 초기화는 GamePanel 생성자가 호출되는 시점에 주입
+    <br/>
+    <img width="448" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/20368452-2c48-4bac-b471-a955cb63a1b5">
+    <br/>
+  - 이를 통해 알 수 있는 것은 GamePanel의 인스턴스가 생성되면서 Score 인스턴스가 생성됨을 알 수 있음
+- 또한, draw() 메서드를 통해서 게임 윈도우에 스코어를 표시해줌을 알 수 있음
+  <br/>
+  <img width="930" alt="image" src="https://github.com/jongheonleee/pong_game/assets/87258372/03431f8b-4aab-4012-947e-25896e16fcf3">
+  <br/>
+- 결국에는 해당 Score 객체는 게임 윈도우에 현재 스코어를 그려주는 역할을함, 오해하지 말아야 하는 것이 GamePanel을 통해서 스코어가 계산이 됨, 즉 이 객체는 그저 스코어를 그려주는 역할을함
+
+
+
+#### (2) GamePanel 객체 분석(스코어 기능 중심)
+
+
+
+
+### 📝 결론 :
 
 
 ## 🛠 새롭게 배운것들
